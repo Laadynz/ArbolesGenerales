@@ -9,33 +9,33 @@ namespace ArbolesGenerales
     public class ArbolGeneral
     {
         private readonly Nodo raiz;
-        public Nodo Raiz { get { return Raiz; } }
+        public Nodo Raiz { get { return raiz; } }
 
         public ArbolGeneral(string dato) 
         {
             raiz = new Nodo(dato);   
         }
 
-        public Nodo Insertar(string dato, Nodo nodoPadre) 
+        public Nodo InsertarHijo(Nodo padre, string dato) 
         {
             if (string.IsNullOrWhiteSpace(dato)) 
             {
                 throw new Exception("No se puede insertar un valor vacio en dato");
             }
 
-            if (nodoPadre == null) 
+            if (padre == null) 
             {
                 throw new Exception("No se puede insertar un nodo, sin especificar el padre");
             }
 
-            if (nodoPadre.Hijo == null)
+            if (padre.Hijo == null)
             {
-                nodoPadre.Hijo = new Nodo(dato);
-                return nodoPadre.Hijo;
+                padre.Hijo = new Nodo(dato);
+                return padre.Hijo;
             }
             else 
             {
-                Nodo hijoActual = nodoPadre.Hijo;
+                Nodo hijoActual = padre.Hijo;
 
                 while (hijoActual.Hermano != null) 
                 {
