@@ -38,7 +38,7 @@ namespace ArbolesBinarios
                 }
 
                 Insertar(dato, nodo.SubArbolDerecho);
-            }
+                }
             else if (dato < nodo.Dato)
             {
                 if (nodo.SubArbolIzquierdo == null)
